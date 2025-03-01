@@ -1,107 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="airflowApp">
+<html ng-app="rajnathApp">
 <head>
-  <title>RajNath</title>
+  <title>Rajnath</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
-  <style>
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: white;
-      border-bottom: 1px solid #e6e6e6;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    .logo img {
-      height: 28px;
-    }
-    .time-info {
-      font-size: 13px;
-      color: #666;
-    }
-    .login-link {
-      color: #000000;
-      text-decoration: none;
-      font-size: 13px;
-    }
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-    }
-    .login-box {
-      background-color: white;
-      border: 1px solid #e6e6e6;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .login-header {
-      background-color: #e6e6e6;
-      padding: 15px;
-      font-size: 16px;
-      color: #000000;
-    }
-    .login-form {
-      padding: 20px;
-    }
-    .form-instruction {
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: #333;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-label {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 14px;
-      color: #000000;
-    }
-    .input-group {
-      display: flex;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .input-icon {
-      width: 36px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f1f1f1;
-      border-right: 1px solid #ccc;
-    }
-    .form-control {
-      flex: 1;
-      padding: 8px 10px;
-      border: none;
-      outline: none;
-      font-size: 14px;
-    }
-    .btn-signin {
-      width: 100%;
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .btn-signin:hover {
-      background-color: #0069d9;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body ng-controller="LoginController">
   <div class="header">
@@ -112,7 +14,7 @@
         <path d="M9.143 13.714L16 20.571l6.857-6.857H9.143z" fill="#00D1AF"/>
         <path d="M9.143 13.714L16 6.857l6.857 6.857H9.143z" fill="white"/>
       </svg>
-      <span style="margin-left: 5px; font-weight: 500;">Raj nath</span>
+      <span style="margin-left: 5px; font-weight: 500;">Rajnath</span>
     </div>
     <div style="display: flex; align-items: center;">
       <span class="time-info">{{currentTime}} ({{timezone}})</span>
@@ -166,29 +68,6 @@
     </div>
   </div>
 
-  <script>
-    angular.module('rajnathApp', [])
-      .controller('LoginController', function($scope) {
-
-        function updateTime() {
-          const now = new Date();
-          let hours = now.getHours();
-          let minutes = now.getMinutes();
-          hours = hours < 10 ? '0' + hours : hours;
-          minutes = minutes < 10 ? '0' + minutes : minutes;
-          $scope.currentTime = hours + ':' + minutes + ' IST';
-          $scope.timezone = '+05:30';
-          if (!$scope.$$phase) {
-            $scope.$apply();
-          }
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-        $scope.login = function() {
-          console.log('Login attempt with:', $scope.username, $scope.password);
-          
-        };
-      });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
